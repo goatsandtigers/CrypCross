@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.goatsandtigers.crypticcrosswords.CrypticCrosswordActivity" >
+
+    <item
+        android:id="@+id/action_select_puzzle"
+        android:orderInCategory="100"
+        android:title="Select Puzzle"/>
+    <item
+        android:id="@+id/action_reveal_letter"
+        android:orderInCategory="100"
+        android:title="Reveal Letter"/>
+    <item
+        android:id="@+id/action_reveal_word"
+        android:orderInCategory="100"
+        android:title="Reveal Word and Explain Answer"/>
+    <item
+        android:id="@+id/action_view_scoreboard"
+        android:orderInCategory="100"
+        android:title="View Scoreboard"/>
+    <item
+        android:id="@+id/action_medium_sized_fonts"
+        android:checkable="true"
+        android:orderInCategory="200"
+        android:title="Medium-sized Fonts"/>
+    <item
+        android:id="@+id/action_large_fonts"
+        android:checkable="true"
+        android:orderInCategory="200"
+        android:title="Large Fonts"/>
+    <item
+        android:id="@+id/action_rate_this_app"
+        android:orderInCategory="201"
+        android:visible="false"
+        android:title="Rate this App"/>
+</menu>

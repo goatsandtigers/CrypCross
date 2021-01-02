@@ -1,5 +1,8 @@
 package com.goatsandtigers.crypcross;
 
+import android.view.Menu;
+import android.view.MenuItem;
+
 public interface CrosswordController {
 
     void onClueSelected(int clueNumber, Direction direction);
@@ -9,4 +12,8 @@ public interface CrosswordController {
     void hideKeyboard();
 
     void onLetterPressed(String letter);
+
+    boolean onCreateOptionsMenu(Menu menu);
+
+    boolean onOptionsItemSelected(MenuItem item);
 }

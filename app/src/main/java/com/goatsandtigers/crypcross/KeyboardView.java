@@ -12,14 +12,15 @@ import android.widget.TextView;
 public class KeyboardView extends LinearLayout {
 
     private static final GradientDrawable borderDrawableNoHighlight = buildCellBorderNoHighlightDrawable();
-    private static final int VERTICAL_PADDING = 0;
     private static final long MIN_TIME_BETWEEN_SAME_LETTER_TOUCHES = 250;
     public static final String BACKSPACE = "<-";
+    public static final String MENU_LABEL = "  Menu  ";
 
     private final CrosswordController controller;
     private LinearLayout topRow;
     private LinearLayout middleRow;
     private LinearLayout bottomRow;
+    private TextView menuButton;
 
     private class LastTouchInfo {
         String letter;
@@ -38,6 +39,7 @@ public class KeyboardView extends LinearLayout {
         this.controller = controller;
         setBackgroundColor(Color.BLACK);
         setOrientation(VERTICAL);
+        setGravity(Gravity.CENTER_HORIZONTAL);
         addView(createTopRow());
         addView(createMiddleRow());
         addView(createBottomRow());
@@ -85,6 +87,9 @@ public class KeyboardView extends LinearLayout {
         bottomRow.addView(createLetterView("N"));
         bottomRow.addView(createLetterView("M"));
         bottomRow.addView(createLetterView(BACKSPACE));
+        menuButton = createLetterView(MENU_LABEL);
+        menuButton.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+        bottomRow.addView(menuButton);
         return bottomRow;
     }
 
@@ -141,7 +146,7 @@ public class KeyboardView extends LinearLayout {
 
     private void handleSizeChanged(int w, int h) {
         final int textViewWidth = Math.max(w / 11, 50);
-        final int textViewHeight = Math.max((h - (4 * VERTICAL_PADDING)) / 3, 40);
+        final int textViewHeight = Math.max(h / 3, 40);
         for (int i = 0; i < topRow.getChildCount(); i++) {
             TextView childView = (TextView) topRow.getChildAt(i);
             childView.setWidth(textViewWidth);
@@ -154,11 +159,12 @@ public class KeyboardView extends LinearLayout {
         }
         for (int i = 0; i < bottomRow.getChildCount(); i++) {
             TextView childView = (TextView) bottomRow.getChildAt(i);
-            childView.setWidth(textViewWidth);
-            childView.setHeight(textViewHeight);
+            if (childView != menuButton) {
+                childView.setWidth(textViewWidth);
+                childView.setHeight(textViewHeight);
+            }
         }
-        topRow.setPadding(textViewWidth / 2, VERTICAL_PADDING, textViewWidth / 2, VERTICAL_PADDING);
-        middleRow.setPadding(textViewWidth, VERTICAL_PADDING, textViewWidth, VERTICAL_PADDING);
-        bottomRow.setPadding(textViewWidth, VERTICAL_PADDING, textViewWidth, VERTICAL_PADDING);
+        menuButton.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, textViewHeight));
     }
+
 }

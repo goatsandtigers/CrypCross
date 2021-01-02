@@ -6,13 +6,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.GridLayout;
+import android.widget.PopupMenu;
 
 public class CrosswordView extends GridLayout {
 
@@ -177,10 +181,24 @@ public class CrosswordView extends GridLayout {
         if (KeyboardView.BACKSPACE.equals(letter)) {
             selectedCell.setText("");
             selectPreviousCellForWord();
+        } else if (KeyboardView.MENU_LABEL.equals(letter)) {
+            showPopupMenu(this);
         } else {
             selectedCell.setText(letter);
             selectNextCellForWord();
         }
+    }
+
+    public void showPopupMenu(View v) {
+        PopupMenu popup = new PopupMenu(getContext(), v);
+        controller.onCreateOptionsMenu(popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return controller.onOptionsItemSelected(item);
+            }
+        });
+        popup.show();
     }
 
     private void selectNextCellForWord() {

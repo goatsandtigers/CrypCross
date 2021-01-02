@@ -33,7 +33,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-public class CrypticCrosswordActivity extends AppCompatActivity implements CrosswordController {
+public class CrypticCrosswordActivity extends Activity implements CrosswordController {
 
     private static final String PUZZLE_SOLVED_KEY = "PUZZLE_SOLVED_KEY";
     public static final String KEY_SCOREBOARD_DATA = "KEY_SCOREBOARD_DATA";

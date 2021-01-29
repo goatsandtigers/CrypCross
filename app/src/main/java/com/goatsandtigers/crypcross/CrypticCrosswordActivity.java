@@ -288,7 +288,7 @@ public class CrypticCrosswordActivity extends Activity implements CrosswordContr
             for (ClueAndExplanation clueAndExplanation : clueList) {
                 if (clueAndExplanation.clue.startsWith(matchingCluePrefix)) {
                     String clueNumberPrefix = clueAndExplanation.clue.split("\\.")[0] + ". ";
-                    String clueWithAnswerLengthRemoved = clueAndExplanation.clue.split("\\ \\(")[0];
+                    String clueWithAnswerLengthRemoved = clueAndExplanation.clue.split("\\.\\s\\(")[0] + ".";
                     String clueWithNumberRemoved = clueWithAnswerLengthRemoved.replace(clueNumberPrefix, "");
                     return clueWithNumberRemoved + "\n\n" + clueAndExplanation.explanation.replace(". ", ".\n");
                 }

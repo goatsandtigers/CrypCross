@@ -26,7 +26,7 @@ public class MainMenuActivity extends Activity {
         mainLayout.setBackgroundResource(R.drawable.news_bg);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.addView(createHeaderView());
-        mainLayout.addView(createPuzzlePackView(1, 5));
+        mainLayout.addView(createPuzzlePackView(1, 6));
         mainLayout.addView(createThemedPuzzlePackView());
         mainLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         ScrollView scroll = new ScrollView(this);

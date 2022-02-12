@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.goatsandtigers.crypcross"
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 17
-        versionName "1.0.12"
+        targetSdkVersion 30
+        versionCode 18
+        versionName "1.0.13"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
